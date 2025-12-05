@@ -118,6 +118,18 @@ export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
+  // Update browser title and set custom Favicon
+  useEffect(() => {
+    document.title = "Rutvik Mathapati";
+    
+    // Create and set a dynamic SVG favicon with "RM"
+    const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    link.type = 'image/svg+xml';
+    link.rel = 'shortcut icon';
+    link.href = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%234f46e5%22/><text y=%22.9em%22 x=%2250%22 font-family=%22sans-serif%22 font-weight=%22bold%22 font-size=%2260%22 fill=%22white%22 text-anchor=%22middle%22>RM</text></svg>`;
+    document.getElementsByTagName('head')[0].appendChild(link);
+  }, []);
+
   // Handle scroll spy
   useEffect(() => {
     const handleScroll = () => {
@@ -163,7 +175,11 @@ export default function Portfolio() {
       <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <div className="flex-shrink-0 flex items-center cursor-pointer" onClick={() => scrollTo('home')}>
+            <div className="flex-shrink-0 flex items-center cursor-pointer group" onClick={() => scrollTo('home')}>
+               {/* Custom RM Icon */}
+              <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center mr-3 group-hover:rotate-12 transition-transform shadow-lg shadow-indigo-200">
+                <span className="text-white font-bold text-lg tracking-tighter">RM</span>
+              </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
                 Rutvik Mathapati
               </span>
@@ -557,7 +573,15 @@ export default function Portfolio() {
                 <span className="font-medium">Connect on LinkedIn</span>
               </a>
 
-              
+              <a 
+                 href="#"
+                 onClick={(e) => e.preventDefault()}
+                 className="flex items-center justify-center p-4 border border-slate-600 rounded-lg hover:bg-slate-700 transition-colors cursor-not-allowed opacity-75"
+                 title="Resume download would go here"
+              >
+                <Download className="mr-3" />
+                <span className="font-medium">Download Resume (PDF)</span>
+              </a>
             </div>
           </div>
         </div>
@@ -566,6 +590,7 @@ export default function Portfolio() {
       {/* Footer */}
       <footer className="bg-slate-950 py-8 text-center text-slate-500 text-sm">
         <p>&copy; {new Date().getFullYear()} Rutvik Mathapati. All rights reserved.</p>
+        <p className="mt-2">Built with React & Tailwind CSS</p>
       </footer>
 
     </div>
