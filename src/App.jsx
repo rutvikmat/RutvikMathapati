@@ -520,6 +520,7 @@ export default function Portfolio() {
               tech={['Blockchain', 'Smart Contracts', 'Decentralized Apps']}
               icon={Blocks}
             />
+            
           </div>
         </div>
       </section>
@@ -572,16 +573,8 @@ export default function Portfolio() {
                 <Linkedin className="mr-3 text-[#0077b5]" />
                 <span className="font-medium">Connect on LinkedIn</span>
               </a>
+              
 
-              <a 
-                 href="#"
-                 onClick={(e) => e.preventDefault()}
-                 className="flex items-center justify-center p-4 border border-slate-600 rounded-lg hover:bg-slate-700 transition-colors cursor-not-allowed opacity-75"
-                 title="Resume download would go here"
-              >
-                <Download className="mr-3" />
-                <span className="font-medium">Download Resume (PDF)</span>
-              </a>
             </div>
           </div>
         </div>
@@ -590,7 +583,6 @@ export default function Portfolio() {
       {/* Footer */}
       <footer className="bg-slate-950 py-8 text-center text-slate-500 text-sm">
         <p>&copy; {new Date().getFullYear()} Rutvik Mathapati. All rights reserved.</p>
-        <p className="mt-2">Built with React & Tailwind CSS</p>
       </footer>
 
     </div>
